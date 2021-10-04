@@ -12,7 +12,7 @@
      @endif
  <div class="panel panel-primary">
       <div class="panel-heading">
-	 <a href="{{ route('students.create') }}" > Add New</a> 
+	 <a href="{{ route('students.create') }}" ><button class="btn btn-secondary"> Add New</button></a> 
       </div>
       <div class="panel-body">
 	 	<table class="table table-hover table-bordered table-stripped">
@@ -35,8 +35,14 @@
 	 			<td>{{ $student->batch }}</td>
 	 			<td>{{ $student->round }}</td>
 	 			<td>{{ $student->tsp }}</td>
-	 			<td>{{ $student->photo }}</td>
-	 			<td>
+	 			{{-- <td>{{ $student->photo }}</td> --}}
+				  <td class="text-center">
+                         @if ($student->photo)
+                             <img src="{{ asset($student->photo) }}" alt="" class="img-thumbnail"
+                                width="100">
+                        @endif
+				   </td>
+	 		<td>	
 	 		<form  method="post" action="{{ route('students.destroy',$student->id) }}" class="delete_form">
                 	        {{ csrf_field() }}
                 		{{ method_field('DELETE') }}

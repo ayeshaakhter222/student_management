@@ -7,7 +7,7 @@
   
  <div class="panel panel-success">
       <div class="panel-heading">
-      	Edit Student
+      	<button class="btn btn-secondary">Edit Student</button>
       </div>
       <div class="panel-body">
       	@if ($errors->any())
@@ -19,7 +19,7 @@
 			        </ul>
 			    </div>
 			@endif
-	 	 <form action="{{ route('students.update',$student->id) }}" method="post">
+	 	 <form action="{{ route('students.update',$student->id) }}" method="post" enctype="multipart/form-data">
 	 	 	{{ csrf_field() }}
 	 	 	{{ method_field('PATCH') }}
 			  <div class="row">
@@ -50,9 +50,12 @@
 				 </div>
 			  	</div>
                   	<div class="col-md-6">
+						  <div class="from-group mb-1 mt-1">
+							  <img src="{{ asset($student->photo) }}" alt="" width="80">
+						  </div>
 			  	<div class="form-group">
 				    <label for="photo">Photo</label>
-				    <input type="text" value="{{ $student->photo }}" class="form-control"  name="photo" id="photo">
+				    <input type="file" class="form-control"  name="photo" id="photo">
 				 </div>
 			  	</div>
 			  </div>

@@ -6,8 +6,9 @@
   
  <div class="panel panel-success">
       <div class="panel-heading">
-      	View Student Details
+      	<button class="btn btn-secondary">View Student Details</button>
       </div>
+	  <form action="">
       <div class="panel-body">
 			  <div class="row">
 			  
@@ -36,14 +37,18 @@
 				 </div>
 			  	</div>
                      <div class="col-md-6">
+						 <div class="from-group mb-1 mt-1">
+							  <img src="{{ asset($student->photo) }}" alt="" width="80">
+						  </div>
 			  	<div class="form-group">
 				    <label for="photo">Photo</label>
-				    <input type="text" disabled value="{{ $student->photo}}" class="form-control" name="photo" id="photo">
+				    <input type="file"  class="form-control" name="photo" id="photo">
 				 </div>
 			  	</div>
 			  </div>
 			  <a href="{{ route('students.index') }}" class="btn btn-danger">Back</a>
    	  </div>
+	  </form>
     </div>
 </div>
     

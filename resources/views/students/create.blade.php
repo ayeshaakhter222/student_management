@@ -10,7 +10,7 @@
  
     <div class="panel panel-success">
       <div class="panel-heading">
-      	Create New Student
+      	<button class="btn btn-secondary"> Create New Student</button>
       </div>
       <div class="panel-body">
       	@if ($errors->any())
@@ -22,7 +22,7 @@
 			        </ul>
 			    </div>
 			@endif
-	 	 <form action="{{ route('students.store') }}" method="post">
+	 	 <form action="{{ route('students.store') }}" method="post" enctype="multipart/form-data">
 	 	 	{{ csrf_field() }}
 			  <div class="row">
 			  
@@ -53,7 +53,7 @@
 				     <div class="col-md-6">
 			  	<div class="form-group">
 				    <label for="photo">Photo</label>
-				    <input type="text" class="form-control"  name="photo" id="photo">
+				    <input type="file" class="form-control"  name="photo" id="photo">
 				 </div>
 			  	</div>
 			  </div>
